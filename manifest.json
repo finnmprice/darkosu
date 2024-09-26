@@ -1,0 +1,26 @@
+{
+  "name": "Dark OSU",
+  "version": "1.0.1.0",
+  "manifest_version": 3,
+  "description": "Dark mode for OSU.",
+  "content_scripts": [
+	  {
+	    "matches": [
+	      "https://digitalcampus.swankmp.net/*"
+	    ],
+	    "css": [
+	      "css/bms.css"
+	    ],
+		"js": [
+			"js/bms.js"
+		]
+	  }
+  ],
+  "icons": {
+  	"128":"images/icon.png"
+  },
+  "web_accessible_resources": [{
+    "resources": ["images/header-image.png"],
+    "matches": ["https://digitalcampus.swankmp.net/*"]
+  }]
+}
