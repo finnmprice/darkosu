@@ -1,0 +1,14 @@
+body,
+html {
+	background-color: #131213 !important;
+	color: #eee !important;
+}
+
+.menuparent a,
+.menu-path-node-751 a{
+	color: #aaa !important;
+}
+
+#osu-top-hat {
+	background: #c23908 !important;
+}

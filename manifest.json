@@ -1,26 +1,38 @@
 {
   "name": "Dark OSU",
-  "version": "1.0.1.0",
+  "version": "1.0.1.1",
   "manifest_version": 3,
   "description": "Dark mode for OSU.",
   "content_scripts": [
 	  {
 	    "matches": [
-	      "https://digitalcampus.swankmp.net/*"
+	      "https://digitalcampus.swankmp.net/*",
+				"https://my.uhds.oregonstate.edu/bms"
 	    ],
 	    "css": [
 	      "css/bms.css"
 	    ],
-		"js": [
-			"js/bms.js"
-		]
-	  }
+			"js": [
+				"js/bms.js"
+			]
+	  },
+		{
+	   "matches": [
+			"https://uhds.oregonstate.edu/resident-services/beaver-movie-streaming"
+	   ],
+	   "css": [
+	     "css/osu.css"
+	   ],
+			"js": [
+				"js/osu.js"
+			]
+		}
   ],
   "icons": {
   	"128":"images/icon.png"
   },
   "web_accessible_resources": [{
-    "resources": ["images/header-image.png"],
-    "matches": ["https://digitalcampus.swankmp.net/*"]
+    "resources": ["images/header-image.png", "images/osu-logo.svg"],
+    "matches": ["https://digitalcampus.swankmp.net/*", "https://*.oregonstate.edu/*"]
   }]
 }

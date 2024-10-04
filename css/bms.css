@@ -17,14 +17,41 @@ mat-toolbar.mobile-navigation[_ngcontent-ng-c3220211797],
 .shaka-expected-seek-tooltip,
 .shaka-overflow-menu[_ngcontent-ng-c3908308332],
 .popup-loading-indicator-container[_ngcontent-ng-c272377060],
-div.mat-mdc-autocomplete-panel {
+div.mat-mdc-autocomplete-panel,
+table.dataTable tr.odd,
+#nav-menu,
+.nav-links li,
+.ui-dialog,
+.ui-dialog-buttonpane {
     background: #131213 !important;
     color: #eee !important;
 }
 
 .dark .mat-toolbar.mat-primary,
-.mat-button-toggle-appearance-standard.mat-button-toggle-checked {
-    background: #1f1e1f !important;
+.mat-button-toggle-appearance-standard.mat-button-toggle-checked,
+table.dataTable tr.even {
+  background: #1f1e1f !important;
+}
+
+.nav-links li a,
+table.dataTable tr.even td a,
+table.dataTable tr.odd td a,
+.suggested h3 a,
+.suggested h2,
+.pure-form label,
+.ui-dialog-content,
+.ui-dialog-content dl dt,
+.ui-dialog-content h4 {
+	color: #eee !important;
+}
+
+.ui-dialog-buttonset button,
+.pure-form.pure-form input,
+#movies_filter label input,
+#movies_length label select {
+	background: transparent !important;
+	border: 1px solid #eee !important;
+	color: #eee !important;
 }
 
 .productImage {
@@ -76,6 +103,10 @@ div.mat-mdc-autocomplete-panel {
     border-right-color: #bbb !important;
 }
 
+#nav-menu {
+	border-right: none !important;
+}
+
 .center-container {
     box-shadow: none !important;
     border: 1px solid #bbb !important;
@@ -101,7 +132,8 @@ div.mat-mdc-autocomplete-panel {
     border: none !important;
 }
 
-main {
+main,
+.pure-form{
     margin-top: 35px !important;
 }
 
@@ -130,4 +162,23 @@ main {
 
 .app-header[_ngcontent-ng-c3220211797] .app-toolbar[_ngcontent-ng-c3220211797] {
     padding-bottom: 1rem !important;
+}
+
+.logo_banner,
+.user_options,
+.dataTables_wrapper,
+.ui-widget-header {
+	background: #c23908 !important;
+}
+
+#ft {
+	border-top: 3px solid #c23908 !important;
+}
+
+#user_profile dl:first-of-type {
+    display: none;
+}
+
+.active {
+	background: #51a687 !important;
 }

@@ -1,22 +1,22 @@
-function replaceTaglineWithLink() {
-    const tagline = document.querySelector('.header-tagline span');
-    if (tagline) {
+function replaceSuggestWithLink() {
+    const suggest = document.querySelector('.header-tagline span');
+    if (suggest) {
         const link = document.createElement('a');
-        link.href = 'https://uhds.link/bms';
+        link.href = 'https://my.uhds.oregonstate.edu/bms';
         link.textContent = 'Suggest movies here';
-        tagline.parentNode.replaceChild(link, tagline);
+        suggest.parentNode.replaceChild(link, suggest);
         return true;
     }
     return false;
 }
 
-function replaceHeaderImage() {
-    const headerImages = document.querySelectorAll('.header-image, .header-image.mobile-header');
+function replaceHeaderImage(classToReplace, imageUrl) {
+    const headerImages = document.querySelectorAll(classToReplace);
     let replaced = false;
 
     headerImages.forEach(headerImage => {
         const newImage = new Image();
-        newImage.src = chrome.runtime.getURL('images/header-image.png');
+        newImage.src = imageUrl;
         newImage.className = headerImage.className;
         if (headerImage.alt) newImage.alt = headerImage.alt;
         if (headerImage.id) newImage.id = headerImage.id;
@@ -27,12 +27,26 @@ function replaceHeaderImage() {
     return replaced;
 }
 
+const toReplace = [
+    ['.header-image, .header-image.mobile-header', chrome.runtime.getURL('images/header-image.png')],
+    ['.suggested img', chrome.runtime.getURL('images/header-image.png')]
+];
+
 function attemptReplacements() {
-    const taglineReplaced = replaceTaglineWithLink();
-    const imageReplaced = replaceHeaderImage();
-    
-    if (!taglineReplaced || !imageReplaced) {
+    const suggestReplaced = replaceSuggestWithLink();
+
+    let allImagesReplaced = true;
+
+    toReplace.forEach(([classToReplace, imageUrl]) => {
+        const imageReplaced = replaceHeaderImage(classToReplace, imageUrl);
+        if (!imageReplaced) {
+            allImagesReplaced = false;
+        }
+    });
+
+    if (!suggestReplaced || !allImagesReplaced) {
         setTimeout(attemptReplacements, 500);
+        console.log('attempted :(');
     }
 }
 
